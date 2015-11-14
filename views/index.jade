@@ -1,0 +1,36 @@
+extends ./layout.jade
+
+block content
+
+  .container
+      br
+      .jumbotron
+        h1 Inventory
+        #rooms
+          each room in rooms
+            h2 Rooms
+              .row.room
+                h2
+                  i.fa.fa-trash-o.fa-lg
+                  br
+                  span.room= room.name
+                  br
+                .items
+                  table.table.table-hover.table-striped
+                    thead
+                      th Name
+                      th Value
+                      th Description
+                      th Delete
+                    tbody
+                      each item in room.items
+                        tr(item._id)
+                          td= item.name
+                          td= '$' + parseInt(item.value)
+                          td= item.description
+                          td: button.btn.btn-default.fa.fa-remove.delete-item
+            h2 Items
+              ul
+                each item in items
+                  li.items= item.name
+block scripts
