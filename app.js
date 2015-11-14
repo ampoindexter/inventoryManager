@@ -9,7 +9,7 @@ var morgan = require('morgan');
 var app = express();
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/inventoryManager')
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/messageboard')
 
 app.set('view engine', 'jade');
 
